@@ -354,7 +354,6 @@ Corporation</span></button>
 <section class="padded"><div class="wrap"><div class="sec-head"><div class="eyebrow mono">Meetings</div><h2>Weekly Meetings</h2><p>The club meets every <strong>Wednesday</strong>. Meetings include project work, planning, learning new skills and collaborating on current initiatives.</p></div></div></section>
 <section class="padded"><div class="wrap"><div class="sec-head"><div class="eyebrow mono">Join</div><h2>How to Join</h2><p>To join the Rototuna Nerd Corporation Club, email <strong>RHSNerdcoproation.rhs.school.nz</strong>. New members are always welcome.</p></div></div></section>
 <section class="padded"><div class="wrap"><div class="sec-head"><div class="eyebrow mono">Coming Soon</div><h2>What's Coming</h2></div><div class="phase-track"><div class="phase-step"><span class="tag mono">Next</span><h5>More Club</h5><p>Expand the network across the school.</p></div><div class="phase-step"><span class="tag mono">Next</span><h5>More RAD Projects</h5><p>Refurbish more laptops for students.</p></div><div class="phase-step"><span class="tag mono">Future</span><h5>Bigger Student Projects</h5><p>Continue developing new technology initiatives.</p></div></div></div></section>
-</body>
   
 <footer>
   <div class="wrap foot-row">
@@ -368,5 +367,21 @@ Corporation</span></button>
     <div class="note">Built to track the crew's story — from three students with screwdrivers to a school-wide IT team.</div>
   </div>
 </footer>
-  
+
+  <script>
+  const buttons = document.querySelectorAll('.nav-link');
+  const panels = document.querySelectorAll('.tab-panel');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      panels.forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('[data-target="' + btn.dataset.target + '"]').forEach(b => {
+        b.classList.add('active'); b.setAttribute('aria-selected','true');
+      });
+      document.getElementById('panel-' + btn.dataset.target).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
+  });
+</script>
+  </body>
 </html>
